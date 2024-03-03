@@ -1,0 +1,26 @@
+managed implementation in class zbp_gm_travel1_cds unique;
+
+
+define behavior for zgm_travel1_CDS alias Travel
+persistent table zgm_travel1
+etag master last_changed_at
+lock master
+{
+
+  // semantic key is calculated in a determination
+  field ( readonly ) travel_id;
+
+  // administrative fields (read only)
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+
+  // mandatory fields that are required to create a travel
+  field ( mandatory ) agency_id, overall_status, booking_fee, currency_code;
+
+  // mandatory fields that are required to create a travel
+  field ( mandatory ) Begin_Date, End_Date, Customer_ID;
+
+  // standard operations for travel entity
+  create;
+  update;
+  delete;
+}
